@@ -52,7 +52,7 @@
   }
   .scoreboard-container {
     display: flex;
-    font-size: 0.8rem;
+    font-size: 0rem;
     flex-direction: column;
     margin: 2rem;
     background-color: #e2ab05;

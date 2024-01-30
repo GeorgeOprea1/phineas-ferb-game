@@ -1,6 +1,6 @@
 import "../styles/Header.css";
 import logo from "../assets/logo.png";
-const Header = () => {
+const Header = ({ startGame }) => {
   return (
     <div className="header-container">
       <img
@@ -9,6 +9,7 @@ const Header = () => {
         className="logo"
         width="250px"
         height="180px"
+        onClick={startGame}
       />
       <div className="scoreboard-container">
         <h1>Score:</h1>
