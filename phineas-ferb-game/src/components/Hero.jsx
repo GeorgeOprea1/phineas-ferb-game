@@ -1,11 +1,10 @@
 import "../styles/Hero.css";
 import Tilt from "react-parallax-tilt";
-import characters from "../characters";
 
-const Hero = () => {
+const Hero = ({ charactersToShow, handleItemClick }) => {
   return (
     <div className="hero-container">
-      {characters.map((character) => (
+      {charactersToShow.map((character) => (
         <Tilt
           key={character.id}
           glareEnable={true}
@@ -22,6 +21,7 @@ const Hero = () => {
             width={250}
             height={350}
             className="character-img"
+            onClick={() => handleItemClick(character.name)}
           />
           <h1 className="character-name">{character.name}</h1>
         </Tilt>
