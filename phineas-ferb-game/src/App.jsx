@@ -6,6 +6,7 @@ import StartScreen from "./components/StartScreen";
 import Footer from "./components/Footer";
 import click from "./assets/sounds/click.mp3";
 import Instrumental from "./assets/sounds/Instrumental.mp3";
+import Hero from "./components/Hero";
 
 function App() {
   const [startScreen, setStartScreen] = useState(true);
@@ -57,7 +58,10 @@ function App() {
           handleButtonClickSound={handleButtonClickSound}
         />
       ) : (
-        <Header startGame={startGame} />
+        <>
+          <Header startGame={startGame} />
+          <Hero />
+        </>
       )}
       <Footer
         toggleInfo={toggleInfo}
