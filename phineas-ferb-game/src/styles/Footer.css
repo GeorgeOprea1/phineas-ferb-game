@@ -1,0 +1,134 @@
+.footer-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-container > * {
+  flex: 1;
+}
+
+.sound-section {
+  display: flex;
+  gap: 2rem;
+}
+
+.github-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.para-footer {
+  font-size: 1.5rem;
+}
+
+.instruction {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+#footer-btns {
+  border: none;
+  background-color: #e2ab05;
+  color: #ff0001;
+  font-family: ferbtastic;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+#footer-btns:hover {
+  transform: scale(1.09);
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.github {
+  text-decoration: none;
+  color: #000;
+}
+
+.github:hover {
+  transform: rotate(360deg) scale(1.2);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.info-container {
+  position: absolute;
+  bottom: 0;
+  animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.info-header {
+  background-color: #e2ab05;
+  color: #ff0001;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 8px 8px 16px rgba(255, 255, 255, 0.9);
+}
+
+.ask {
+  z-index: 2;
+}
+
+@media (max-width: 1450px) {
+  .github-container {
+    display: none;
+  }
+  .info-img {
+    width: 150px;
+  }
+  .info-header {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #footer-btns {
+    padding: 8px;
+  }
+
+  .icon {
+    font-size: 1rem;
+  }
+
+  .info-img {
+    width: 150px;
+  }
+
+  .info-header {
+    font-size: 1rem;
+  }
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
