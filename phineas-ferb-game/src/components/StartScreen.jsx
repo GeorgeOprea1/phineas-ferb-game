@@ -1,7 +1,7 @@
 import logo from "../assets/logo.png";
 import "../styles/StartScreen.css";
 
-const StartScreen = ({ startGame }) => {
+const StartScreen = ({ startGame, handleButtonClickSound }) => {
   return (
     <div className="start-container">
       <img
@@ -10,6 +10,7 @@ const StartScreen = ({ startGame }) => {
         width="350px"
         height="280px"
         className="screen-logo"
+        onClick={handleButtonClickSound}
       />
       <h1 className="title-game">Memory game</h1>
       <div className="btns-container">
