@@ -8,9 +8,12 @@ import click from "./assets/sounds/click.mp3";
 import Instrumental from "./assets/sounds/Instrumental.mp3";
 import Hero from "./components/Hero";
 import characters from "./characters";
+import GameOver from "./components/GameOver";
 
 function App() {
   const [startScreen, setStartScreen] = useState(true);
+  const [game, setGame] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const [volumeOn, setVolumeOn] = useState(true);
   const [musicdOn, setMusicOn] = useState(false);
   const [info, setInfo] = useState(false);
@@ -81,6 +84,8 @@ function App() {
 
     if (clickedCharacters.includes(clickedCharacter)) {
       console.log("You lose! Same character clicked twice!");
+      setGame(false);
+      setGameOver(true);
 
       if (score > bestScore) {
         setBestScore(score);
@@ -124,10 +129,17 @@ function App() {
     handleButtonClickSound();
   }
   function startGame() {
-    setStartScreen(!startScreen);
+    setStartScreen(false);
     setInfo(false);
+    setGame(true);
     handleButtonClickSound();
     setScore(0);
+  }
+
+  function restart() {
+    setStartScreen(true);
+    setGameOver(false);
+    setGame(false);
   }
 
   return (
@@ -141,11 +153,15 @@ function App() {
         />
       ) : (
         <>
-          <Header startGame={startGame} score={score} bestScore={bestScore} />
-          <Hero
-            charactersToShow={charactersToShow}
-            handleItemClick={handleItemClick}
-          />
+          <Header restart={restart} score={score} bestScore={bestScore} />
+          {game ? (
+            <Hero
+              charactersToShow={charactersToShow}
+              handleItemClick={handleItemClick}
+            />
+          ) : (
+            <GameOver restart={restart} />
+          )}
         </>
       )}
       <Footer

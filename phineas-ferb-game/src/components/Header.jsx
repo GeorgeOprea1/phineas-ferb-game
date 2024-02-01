@@ -1,6 +1,6 @@
 import "../styles/Header.css";
 import logo from "../assets/logo.png";
-const Header = ({ startGame, score, bestScore }) => {
+const Header = ({ restart, score, bestScore }) => {
   return (
     <div className="header-container">
       <img
@@ -9,7 +9,7 @@ const Header = ({ startGame, score, bestScore }) => {
         className="logo"
         width="250px"
         height="180px"
-        onClick={startGame}
+        onClick={restart}
       />
       <div className="scoreboard-container">
         <h1>Score: {score}</h1>

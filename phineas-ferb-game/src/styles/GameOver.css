@@ -1,0 +1,58 @@
+.game-over-container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12rem;
+  padding: 2rem;
+  border: 1rem solid #e2ab05;
+  border-radius: 14px;
+  background-image: url("../assets/gameOver.avif");
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+}
+
+#restart {
+  background-color: #e2ab05;
+  color: #ff0001;
+  font-family: ferbtastic;
+  font-size: 2rem;
+  border-radius: 14px;
+  padding: 5px 20px;
+  border: none;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+#restart:hover {
+  transform: scale(1.09);
+}
+
+.game-over-header {
+  color: #ff0001;
+  font-size: 5rem;
+  font-weight: 900;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.9);
+  letter-spacing: 2px;
+}
+
+.game-over-para {
+  color: #ff0001;
+  font-size: 3rem;
+  font-weight: 900;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.9);
+  letter-spacing: 2px;
+}
+
+.text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
