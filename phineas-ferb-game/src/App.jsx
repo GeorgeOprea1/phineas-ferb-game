@@ -17,6 +17,10 @@ function App() {
   const [play, { stop }] = useSound(Instrumental);
   const [difficulty, setDifficulty] = useState("");
   const [charactersToShow, setCharactersToShow] = useState([]);
+  const [initialCharacters, setInitialCharacters] = useState([]);
+  const [clickedCharacters, setClickedCharacters] = useState([]);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
     if (musicdOn) {
@@ -26,22 +30,35 @@ function App() {
     }
   }, [musicdOn, play, stop]);
 
+  useEffect(() => {
+    setInitialCharacters(getRandomCharacters(14));
+  }, []);
+
   function easyLevel() {
     setDifficulty("easy");
-    setCharactersToShow(getRandomCharacters(3));
+    setInitialCharacters(getRandomCharacters(5));
+    setCharactersToShow(initialCharacters.slice(0, 3));
+    setClickedCharacters([]);
     console.log(difficulty);
+    console.log(initialCharacters);
     startGame();
   }
   function mediumLevel() {
     setDifficulty("medium");
-    setCharactersToShow(getRandomCharacters(5));
+    setInitialCharacters(getRandomCharacters(9));
+    setCharactersToShow(initialCharacters.slice(0, 5));
+    setClickedCharacters([]);
+    console.log(initialCharacters);
     console.log(difficulty);
     startGame();
   }
   function hardLevel() {
     setDifficulty("hard");
-    setCharactersToShow(getRandomCharacters(7));
+    setInitialCharacters(getRandomCharacters(13));
+    setCharactersToShow(initialCharacters.slice(0, 7));
+    setClickedCharacters([]);
     console.log(difficulty);
+    console.log(initialCharacters);
     startGame();
   }
 
@@ -51,14 +68,39 @@ function App() {
   }
 
   const reshuffle = () => {
-    const shuffledCharacters = characters.sort(() => Math.random() - 0.5);
+    const shuffledCharacters = initialCharacters.sort(
+      () => Math.random() - 0.5
+    );
+    setInitialCharacters(shuffledCharacters);
+
     setCharactersToShow(shuffledCharacters.slice(0, charactersToShow.length));
   };
+
   const handleItemClick = (clickedCharacter) => {
     console.log("Clicked character:", clickedCharacter);
-    reshuffle();
-    handleButtonClickSound();
+
+    if (clickedCharacters.includes(clickedCharacter)) {
+      console.log("You lose! Same character clicked twice!");
+
+      if (score > bestScore) {
+        setBestScore(score);
+        localStorage.setItem("bestScore", score.toString());
+      }
+    } else {
+      setScore(score + 1);
+
+      setClickedCharacters([...clickedCharacters, clickedCharacter]);
+      reshuffle();
+      handleButtonClickSound();
+    }
   };
+
+  useEffect(() => {
+    const storedBestScore = localStorage.getItem("bestScore");
+    if (storedBestScore) {
+      setBestScore(parseInt(storedBestScore, 10));
+    }
+  }, []);
 
   function handleButtonClickSound() {
     if (volumeOn) {
@@ -85,6 +127,7 @@ function App() {
     setStartScreen(!startScreen);
     setInfo(false);
     handleButtonClickSound();
+    setScore(0);
   }
 
   return (
@@ -98,7 +141,7 @@ function App() {
         />
       ) : (
         <>
-          <Header startGame={startGame} />
+          <Header startGame={startGame} score={score} bestScore={bestScore} />
           <Hero
             charactersToShow={charactersToShow}
             handleItemClick={handleItemClick}
