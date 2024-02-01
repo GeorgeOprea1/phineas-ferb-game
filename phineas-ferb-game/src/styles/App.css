@@ -1,7 +1,10 @@
 .app-container {
   width: 100%;
+  max-width: 1536px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   jusitfy-content: center;
   align-items: center;
+  position: relative;
 }

@@ -14,6 +14,7 @@ function App() {
   const [startScreen, setStartScreen] = useState(true);
   const [game, setGame] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [result, setResult] = useState("");
   const [volumeOn, setVolumeOn] = useState(true);
   const [musicdOn, setMusicOn] = useState(false);
   const [info, setInfo] = useState(false);
@@ -39,7 +40,7 @@ function App() {
 
   function easyLevel() {
     setDifficulty("easy");
-    setInitialCharacters(getRandomCharacters(5));
+    setInitialCharacters(getRandomCharacters(6));
     setCharactersToShow(initialCharacters.slice(0, 3));
     setClickedCharacters([]);
     console.log(difficulty);
@@ -48,7 +49,7 @@ function App() {
   }
   function mediumLevel() {
     setDifficulty("medium");
-    setInitialCharacters(getRandomCharacters(9));
+    setInitialCharacters(getRandomCharacters(10));
     setCharactersToShow(initialCharacters.slice(0, 5));
     setClickedCharacters([]);
     console.log(initialCharacters);
@@ -57,7 +58,7 @@ function App() {
   }
   function hardLevel() {
     setDifficulty("hard");
-    setInitialCharacters(getRandomCharacters(13));
+    setInitialCharacters(getRandomCharacters(14));
     setCharactersToShow(initialCharacters.slice(0, 7));
     setClickedCharacters([]);
     console.log(difficulty);
@@ -86,6 +87,7 @@ function App() {
       console.log("You lose! Same character clicked twice!");
       setGame(false);
       setGameOver(true);
+      setResult("lose");
 
       if (score > bestScore) {
         setBestScore(score);
@@ -93,10 +95,15 @@ function App() {
       }
     } else {
       setScore(score + 1);
-
       setClickedCharacters([...clickedCharacters, clickedCharacter]);
       reshuffle();
       handleButtonClickSound();
+
+      if (score + 1 === initialCharacters.length - 1) {
+        setGame(false);
+        setGameOver(true);
+        setResult("win");
+      }
     }
   };
 
@@ -156,11 +163,13 @@ function App() {
           <Header restart={restart} score={score} bestScore={bestScore} />
           {game ? (
             <Hero
+              initialCharacters={initialCharacters}
+              score={score}
               charactersToShow={charactersToShow}
               handleItemClick={handleItemClick}
             />
           ) : (
-            <GameOver restart={restart} />
+            <GameOver restart={restart} result={result} />
           )}
         </>
       )}
