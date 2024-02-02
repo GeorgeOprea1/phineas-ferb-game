@@ -27,7 +27,7 @@ const Hero = ({
               width={250}
               height={350}
               className="character-img"
-              onClick={() => handleItemClick(character.name)}
+              onClick={() => handleItemClick(character)}
             />
             <h1 className="character-name">{character.name}</h1>
           </Tilt>

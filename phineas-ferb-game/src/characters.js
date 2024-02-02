@@ -11,6 +11,9 @@ import jeremy from "./assets/characters/jeremy.avif";
 import mom from "./assets/characters/mom.avif";
 import perry from "./assets/characters/perry.avif";
 import vanessa from "./assets/characters/vanessa.avif";
+import carl from "./assets/characters/carl.avif";
+import monogram from "./assets/characters/monogram.avif";
+import buford from "./assets/characters/buford.avif";
 
 const characters = [
   {
@@ -83,6 +86,24 @@ const characters = [
     id: uniqid(),
     name: "Isabela",
     src: isabela,
+    clicked: false,
+  },
+  {
+    id: uniqid(),
+    name: "Carl",
+    src: carl,
+    clicked: false,
+  },
+  {
+    id: uniqid(),
+    name: "Monogram",
+    src: monogram,
+    clicked: false,
+  },
+  {
+    id: uniqid(),
+    name: "Buford",
+    src: buford,
     clicked: false,
   },
 ];

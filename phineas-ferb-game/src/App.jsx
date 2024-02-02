@@ -43,7 +43,6 @@ function App() {
     setInitialCharacters(getRandomCharacters(6));
     setCharactersToShow(initialCharacters.slice(0, 3));
     setClickedCharacters([]);
-    console.log(difficulty);
     console.log(initialCharacters);
     startGame();
   }
@@ -53,7 +52,6 @@ function App() {
     setCharactersToShow(initialCharacters.slice(0, 5));
     setClickedCharacters([]);
     console.log(initialCharacters);
-    console.log(difficulty);
     startGame();
   }
   function hardLevel() {
@@ -61,7 +59,6 @@ function App() {
     setInitialCharacters(getRandomCharacters(14));
     setCharactersToShow(initialCharacters.slice(0, 7));
     setClickedCharacters([]);
-    console.log(difficulty);
     console.log(initialCharacters);
     startGame();
   }
