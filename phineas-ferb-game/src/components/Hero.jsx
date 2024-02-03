@@ -35,7 +35,7 @@ const Hero = ({
       </div>
       <div className="win-condition">
         <p>
-          {score} / {initialCharacters.length - 1}
+          {score} / {initialCharacters.length - 2}
         </p>
       </div>
     </div>

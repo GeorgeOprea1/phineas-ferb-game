@@ -43,7 +43,6 @@ function App() {
     setInitialCharacters(getRandomCharacters(6));
     setCharactersToShow(initialCharacters.slice(0, 3));
     setClickedCharacters([]);
-    console.log(initialCharacters);
     startGame();
   }
   function mediumLevel() {
@@ -51,7 +50,6 @@ function App() {
     setInitialCharacters(getRandomCharacters(10));
     setCharactersToShow(initialCharacters.slice(0, 5));
     setClickedCharacters([]);
-    console.log(initialCharacters);
     startGame();
   }
   function hardLevel() {
@@ -59,7 +57,6 @@ function App() {
     setInitialCharacters(getRandomCharacters(14));
     setCharactersToShow(initialCharacters.slice(0, 7));
     setClickedCharacters([]);
-    console.log(initialCharacters);
     startGame();
   }
 
@@ -78,8 +75,6 @@ function App() {
   };
 
   const handleItemClick = (clickedCharacter) => {
-    console.log("Clicked character:", clickedCharacter);
-
     if (clickedCharacters.includes(clickedCharacter)) {
       console.log("You lose! Same character clicked twice!");
       setGame(false);
@@ -96,7 +91,7 @@ function App() {
       reshuffle();
       handleButtonClickSound();
 
-      if (score + 1 === initialCharacters.length - 1) {
+      if (score + 1 === initialCharacters.length - 2) {
         setGame(false);
         setGameOver(true);
         setResult("win");
