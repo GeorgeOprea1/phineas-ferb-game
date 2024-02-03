@@ -34,7 +34,9 @@
   align-items: center;
 }
 
-#footer-btns {
+#music-footer-btns,
+#volume-footer-btns,
+#info-footer-btns {
   border: none;
   background-color: #e2ab05;
   color: #ff0001;
@@ -45,7 +47,9 @@
   cursor: pointer;
 }
 
-#footer-btns:hover {
+#music-footer-btns:hover,
+#volume-footer-btns:hover,
+#info-footer-btns:hover {
   transform: scale(1.09);
 }
 

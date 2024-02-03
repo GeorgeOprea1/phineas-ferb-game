@@ -20,14 +20,22 @@ const Footer = ({
   return (
     <div className="footer-container">
       <div className="sound-section">
-        <button id="footer-btns" onClick={toggleVolume}>
+        <button
+          id="volume-footer-btns"
+          aria-label="toggle volume button"
+          onClick={toggleVolume}
+        >
           {volumeOn ? (
             <IoVolumeMediumSharp className="icon" />
           ) : (
             <IoVolumeMute className="icon" />
           )}
         </button>
-        <button id="footer-btns" onClick={toggleMusic}>
+        <button
+          id="music-footer-btns"
+          onClick={toggleMusic}
+          aria-label="toggle music button"
+        >
           {musicdOn ? (
             <MdMusicNote className="icon" />
           ) : (
@@ -67,11 +75,21 @@ const Footer = ({
         )}
 
         {info ? (
-          <button onClick={toggleInfo} id="footer-btns" className="ask">
+          <button
+            onClick={toggleInfo}
+            id="info-footer-btns"
+            aria-label="toggle info button"
+            className="ask"
+          >
             <IoClose className="icon ask" />
           </button>
         ) : (
-          <button onClick={toggleInfo} id="footer-btns" className="ask">
+          <button
+            onClick={toggleInfo}
+            id="info-footer-btns"
+            className="ask"
+            aria-label="toggle info button"
+          >
             <FaQuestion className="icon" />
           </button>
         )}

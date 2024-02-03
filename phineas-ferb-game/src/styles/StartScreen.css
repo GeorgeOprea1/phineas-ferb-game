@@ -30,7 +30,9 @@
   width: 60%;
 }
 
-#level-btn {
+#easy-level-btn,
+#medium-level-btn,
+#hard-level-btn {
   background-color: #e2ab05;
   color: #ff0001;
   font-family: ferbtastic;
@@ -42,7 +44,9 @@
   cursor: pointer;
 }
 
-#level-btn:hover {
+#easy-level-btn:hover,
+#medium-level-btn:hover,
+#hard-level-btn:hover {
   transform: scale(1.09);
 }
 
@@ -64,7 +68,9 @@
     font-size: 4rem;
   }
 
-  #level-btn {
+  #easy-level-btn,
+  #medium-level-btn,
+  #hard-level-btn {
     font-size: 1.7rem;
   }
 }

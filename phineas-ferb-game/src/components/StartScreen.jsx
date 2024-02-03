@@ -19,13 +19,25 @@ const StartScreen = ({
       />
       <h1 className="title-game">Memory game</h1>
       <div className="btns-container">
-        <button id="level-btn" onClick={easyLevel}>
+        <button
+          id="easy-level-btn"
+          onClick={easyLevel}
+          aria-label="hard level button"
+        >
           Easy
         </button>
-        <button id="level-btn" onClick={mediumLevel}>
+        <button
+          id="medium-level-btn"
+          onClick={mediumLevel}
+          aria-label="hard level button"
+        >
           Medium
         </button>
-        <button id="level-btn" onClick={hardLevel}>
+        <button
+          id="hard-level-btn"
+          onClick={hardLevel}
+          aria-label="hard level button"
+        >
           Hard
         </button>
       </div>
