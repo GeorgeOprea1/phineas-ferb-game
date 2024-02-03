@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.avif";
 import "../styles/StartScreen.css";
 
 const StartScreen = ({

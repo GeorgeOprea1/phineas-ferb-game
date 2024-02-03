@@ -1,5 +1,5 @@
 import "../styles/Header.css";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.avif";
 const Header = ({ restart, score, bestScore }) => {
   return (
     <div className="header-container">
