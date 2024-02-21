@@ -25,6 +25,14 @@ function App() {
   const [clickedCharacters, setClickedCharacters] = useState([]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [showBack, setShowBack] = useState(false);
+
+  const ShowCardBack = () => {
+    setShowBack(true);
+    setTimeout(() => {
+      setShowBack(false);
+    }, 1000);
+  };
 
   useEffect(() => {
     if (musicdOn) {
@@ -75,6 +83,8 @@ function App() {
   };
 
   const handleItemClick = (clickedCharacter) => {
+    ShowCardBack();
+
     if (clickedCharacters.includes(clickedCharacter)) {
       console.log("You lose! Same character clicked twice!");
       setGame(false);
@@ -159,6 +169,7 @@ function App() {
               score={score}
               charactersToShow={charactersToShow}
               handleItemClick={handleItemClick}
+              showBack={showBack}
             />
           ) : (
             <GameOver restart={restart} result={result} />

@@ -41,7 +41,7 @@
   background-color: #e2ab05;
   color: #ff0001;
   font-family: ferbtastic;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 50%;
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.9);
   cursor: pointer;
@@ -116,8 +116,10 @@
 }
 
 @media (max-width: 768px) {
-  #footer-btns {
-    padding: 8px;
+  #music-footer-btns,
+  #volume-footer-btns,
+  #info-footer-btns {
+    padding: 7px;
   }
 
   .icon {
